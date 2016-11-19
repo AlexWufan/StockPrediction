@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+{% block title %} base {% endblock %}
+<head>
+<link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+{% block head %}
+	 
+{% endblock %}
+</head>
+
+<body>
+{% block page_content %}
+
+{% block header %}
+
+<header>
+
+    <div class="nav">
+	    <ul>
+	    <li class="search_nav"><a class="active" href="/">Search</a></li>
+	    <li class="predict"><a href="predict">Predict</a></li>
+		<li class="realtime"><a href="realtime">RealtimePredict</a></li>
+		<li class="login" style="float:right"><a href="#">Login</a></li>
+	    </ul>
+    </div>
+
+</header>
+{% endblock %}
+
+<div class = "container">
+
+		<div class="img-block"></div>
+		<section class = "search">
+		<form action="" method="post">
+		<div>
+			<input type="text" class = "searchtext" id="stockid" name="stockid" value="{{
+          request.form.stockid }}"  placeholder="Input stock symbol">
+          	<input type="submit" class = "searchbtn"  id="searchbtn" value="GO">
+			<!-- <button type = "submit"  value="searchstock" ><span>Search</span></button> -->
+		</div>
+		</form>
+		</section>
+
+		{% block graph %}
+		{% endblock %}
+
+</div>
+
+
+{% endblock %}
+</body>
+</html> 

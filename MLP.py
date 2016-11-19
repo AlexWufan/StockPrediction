@@ -2,8 +2,9 @@ import numpy as np
 import fetchdata
 from sklearn.neural_network import MLPRegressor
 
+
 def mlp_predict(days, offset, name='YHOO'):
-    N = 30
+    N = 100
     # Generate sample data
     X = np.arange(N).reshape(N, 1)
     y = fetchdata.get_data(name).ravel()
@@ -12,7 +13,8 @@ def mlp_predict(days, offset, name='YHOO'):
     # Fit regression model
     mlp_adam = MLPRegressor(algorithm='l-bfgs', activation='logistic')
     y_log = mlp_adam.fit(X, y).predict(Z)
-    return y_log
+    a = [round(i, 3) for i in list(y_log)]
+    return a
 
 if __name__=='__main__':
-    print mlp_predict(10, 2, 'AAPL')
+    print mlp_predict(15, 0, 'AAPL')
